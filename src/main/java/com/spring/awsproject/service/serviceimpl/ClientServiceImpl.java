@@ -10,7 +10,7 @@ import com.spring.awsproject.repository.ClientRepository;
 import com.spring.awsproject.service.ServiceInterface;
 
 @Repository
-public class ClientServiceImpl implements ServiceInterface<ClientEntity>{
+public class ClientServiceImpl implements ServiceInterface<ClientEntity,Long>{
 
    @Autowired
    ClientRepository repository;
@@ -28,6 +28,11 @@ public class ClientServiceImpl implements ServiceInterface<ClientEntity>{
    @Override
    public ClientEntity save(ClientEntity entity) {
       return repository.save(entity);
+   }
+
+   @Override
+   public void delete(Long id) {
+      repository.deleteById(id);
    }
 
 }

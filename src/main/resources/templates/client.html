@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns=th="thhp://thymeleaf.org">
+<html xmlns=th="http://thymeleaf.org">
 
 <head>
 <title>Clientes</title>
@@ -25,34 +25,44 @@
    </header>
 
    <main>
-      <div class="container" style="width: 60%; padding-bottom: 30px">
+   <div class="container" style="width: 60%; padding-bottom: 30px">
 
-         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
-               <li class="breadcrumb-item" aria-current="page"><a href="/clients">Clientes</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Cliente</li>
-            </ol>
-         </nav>
-
-
-         <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;">
-            <div class="card-body">
-
-
-               <h4 class="card-title" style="font-weight: bold; color: black; padding-top: : 5px;">
-                  <span th:text="${client.nome}"></span>
-               </h4></a>
-               <p class="card-subtitle mb-2 test-muted">
-                  Apelido: <span th:text="${client.apelido}"></span>
-               </p>
-               <p class="card-subtitle mb-2 test-muted">
-                  Data: <span th:text="${client.data}"></span>
-               </p>
-
-<!--                <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,400)}" ></span></p> -->
-            </div>
+      <nav aria-label="breadcrumb">
+         <ol class="breadcrumb"
+            style="background-color: white; padding-left: 0px;">
+            <li class="breadcrumb-item" aria-current="page"><a
+               href="/clients">Clientes</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cliente</li>
+         </ol>
+      </nav>
+      <div style="margin-top: 20px;">
+         <div class="form-group col-md-3" style="margin-top: 10px;">
+            <label>Id</label>
+            <input type="text" class="form-control" name="id"
+               th:value="${client.id}" readonly="readonly">
+         </div>
+         <div class="form-group col-md-3" style="margin-top: 10px;">
+            <label>Data da alteração</label>
+            <input type="text" class="form-control" name="id"
+               th:value="${client.data}" readonly="readonly">
+         </div>
+         <div class="form-group" style="margin-top: 10px;">
+            <label>Nome</label>
+            <input type="text" class="form-control" name="nome"
+               th:value="${client.nome}" readonly="readonly">
+         </div>
+         <div class="form-group" style="margin-top: 10px;">
+            <label>Apelido</label>
+            <input type="text" class="form-control" name="apelido"
+               th:value="${client.apelido}" readonly="readonly">
          </div>
       </div>
+      <div>
+         <a href="/clients" class="btn btn-light" role="button"
+            style="margin-top: 10px;">Cancelar</a>
+      </div>
+
+   </div>
    </main>
 
 </body>

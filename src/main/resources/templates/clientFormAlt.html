@@ -19,7 +19,7 @@
    <header>
 
       <nav class="navbar navbar-light bg-light">
-         <span class="navbar-brand mb-0 h1" style="margin-left: 20px; font-weight: bold;">Novo cliente</span>
+         <span class="navbar-brand mb-0 h1" style="margin-left: 20px; font-weight: bold;">Alterar cliente</span>
       </nav>
 
    </header>
@@ -30,29 +30,31 @@
          <nav aria-label="breadcrumb">
             <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
                <li class="breadcrumb-item" aria-current="page"><a href="/clients">Clientes</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Novo cliente</li>
+               <li class="breadcrumb-item active" aria-current="page">Alterar cliente</li>
             </ol>
          </nav>
 
          <div>
             <th:block th:include="mensagemValidacao"></th:block>
-            <form method="post">
-               <label>Nome*</label>
+            <form method="post" action="/newclient" >
+               <div class="form-group col-md-3" style="margin-top: 10px; ">
+                  <label>Id</label>
+                  <input type="text" class="form-control" name="id" th:value="${client.id}" readonly="readonly" >
+               </div>
                <div class="form-group" style="margin-top: 10px;">
-                  <input type="text" class="form-control" name="nome">
+                  <label>Nome*</label>
+                  <input type="text" class="form-control" name="nome" th:value="${client.nome}">
                </div>
                <div class="form-group" style="margin-top: 10px;">
                   <label>Apelido*</label>
-                  <input type="text" class="form-control" name="apelido">
+                  <input type="text" class="form-control" name="apelido" th:value="${client.apelido}">
                </div>
 
-               <small class="form-text text-muted">(*) Campo obrigatório</small>
                <div>
                   <button type="submit" class="btn btn-primary"
                      style="margin-top: 10px;">Cadastrar</button>
                   <a href="/clients" class="btn btn-light" role="button"
                      style="margin-top: 10px;">Cancelar</a>
-                  <!--<button type="submit" class="btn" style="margin-top: 10px;">Cancelar</button>-->
                </div>
             </form>
          </div>
